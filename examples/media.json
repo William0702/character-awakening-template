@@ -1,0 +1,14 @@
+[
+  {
+    "name": "abyss-tide",
+    "bytes": 5793455,
+    "sha256": "fd149253f9ceca3fa1a950f9a4e11f179212e7935e32cb9e7925fccacc98337d",
+    "url": "https://github.com/William0702/character-awakening-template/releases/download/v1.2.1/abyss-tide.mp4"
+  },
+  {
+    "name": "stitched-spider",
+    "bytes": 11764217,
+    "sha256": "b9b5812e5462581a79250bd7f810f5470072f1d3c9e6ece815ef78ab948b78f0",
+    "url": "https://github.com/William0702/character-awakening-template/releases/download/v1.2.1/stitched-spider.mp4"
+  }
+]

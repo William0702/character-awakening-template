@@ -8,6 +8,17 @@
 - 前置设计角色变身、生长重构、瞬间压场、摄影机速度、光照与法相规模。
 - 不自动调用图片、视频或付费生成服务。
 
+## 生成直出预览
+
+点击封面观看或下载原始MP4；视频存放在Release，拉取技能不下载视频。
+
+| 渊潮魇王 | 缝身蛛后 |
+|---|---|
+| [![渊潮魇王](examples/abyss-tide/poster.jpg)](https://github.com/William0702/character-awakening-template/releases/download/v1.2.1/abyss-tide.mp4) | [![缝身蛛后](examples/stitched-spider/poster.jpg)](https://github.com/William0702/character-awakening-template/releases/download/v1.2.1/stitched-spider.mp4) |
+| [配套提示词](examples/abyss-tide/prompt.md) | [配套提示词](examples/stitched-spider/prompt.md) |
+
+[查看示例说明](examples/README.md)。示例不保证每次生成相同效果，初始参考图及完整模型设置尚未收录。
+
 ## 安装
 
 需要 Git。以下以 Windows PowerShell 为例；自定义 CODEX_HOME 的用户将目录改为自己的 skills 目录。
@@ -88,4 +99,4 @@ git push origin vX.Y.Z
 ## 边界
 
 提示词时间是节奏预算，“120帧”“360度”等描述不保证模型执行。结构校验不等于生成效果验证。
-公开仓库仅含技能文本；使用者应自行确保输入素材和输出用途适当。当前未授予额外开源许可证，公开可访问不等于授予任意再分发或商业授权。
+公开仓库包含技能文本、提示词及预览封面，Release另含用户授权的示例视频；使用者应自行确保输入素材和输出用途适当。当前未授予额外开源许可证，公开可访问不等于授予任意再分发或商业授权。
