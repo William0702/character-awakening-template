@@ -1,0 +1,6 @@
+interface:
+  display_name: "角色觉醒与法相模板"
+  short_description: "从角色图选择觉醒方向，确认详细设定后填充四段变身法相提示词"
+  default_prompt: "使用 $character-awakening-template，根据我的初始角色图完成方向选择、觉醒设定审核和四段模板提示词制作。"
+policy:
+  allow_implicit_invocation: true
