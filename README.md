@@ -19,6 +19,12 @@
 
 [查看示例说明](examples/README.md)。示例不保证每次生成相同效果，初始参考图及完整模型设置尚未收录。
 
+## 对话参考与测试
+
+[查看19轮脱敏实测对话](examples/conversations/conversation-reference.md) · [复制多轮测试模板](examples/conversations/test-template.md) · [查看观察与已知问题](examples/conversations/observations.md)
+
+覆盖方向换新、恐怖转向、设定确认、角色重启、场景联动修改和母版收紧。保留真实失败与中断，不作为全部通过的测试报告；原图附件和私人路径未公开。
+
 ## 安装
 
 需要 Git。以下以 Windows PowerShell 为例；自定义 CODEX_HOME 的用户将目录改为自己的 skills 目录。
