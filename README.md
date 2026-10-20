@@ -1,108 +1,66 @@
 # 角色觉醒与法相模板
 
-从初始角色图制作15秒四段变身与法相提示词。
+给一张初始角色图，先确定觉醒方向与详细设定，确认后生成15秒四段式变身与法相提示词。
 
-- 有方向：直接深化觉醒设定与字段替换表。
-- 无方向：五个不同方向＋“都不满意”，持续迭代。
-- 用户确认详细设定与机制运镜卡片后，输出完整母版提示词。
-- 前置设计角色变身、生长重构、瞬间压场、摄影机速度、光照与法相规模。
-- 不自动调用图片、视频或付费生成服务。
+**使用流程：角色图 → 有方向直接深化／无方向五选一 → 审核觉醒设定与爆发运镜 → 确认后输出完整提示词。**
+
+## 从这里开始
+
+| 你想做什么 | 对应入口 |
+|---|---|
+| 安装技能、开始使用、同步最新版本 | [安装与使用指南](docs/installation.md) |
+| 看实际生成视频与配套提示词 | [效果预览](examples/README.md) |
+| 看真实对话如何选方向、确认和修改 | [对话参考](examples/conversations/README.md) |
+| 自己跑一轮测试并记录问题 | [可复制测试模板](examples/conversations/test-template.md) |
+| 看版本变化 | [更新记录](CHANGELOG.md) |
+| 修改技能、发布新版本 | [维护指南](docs/maintenance.md) |
+| 理解每个文件的用途 | [目录说明](docs/repository-map.md) |
 
 ## 生成直出预览
-
-点击封面观看或下载原始MP4；视频存放在Release，拉取技能不下载视频。
 
 | 渊潮魇王 | 缝身蛛后 |
 |---|---|
 | [![渊潮魇王](examples/abyss-tide/poster.jpg)](https://github.com/William0702/character-awakening-template/releases/download/v1.2.1/abyss-tide.mp4) | [![缝身蛛后](examples/stitched-spider/poster.jpg)](https://github.com/William0702/character-awakening-template/releases/download/v1.2.1/stitched-spider.mp4) |
-| [配套提示词](examples/abyss-tide/prompt.md) | [配套提示词](examples/stitched-spider/prompt.md) |
+| [完整提示词](examples/abyss-tide/prompt.md) | [完整提示词](examples/stitched-spider/prompt.md) |
 
-[查看示例说明](examples/README.md)。示例不保证每次生成相同效果，初始参考图及完整模型设置尚未收录。
+点击封面打开原始视频。视频保存在 Release，安装技能时不会下载视频。示例缺少完整模型配置和初始角色图，不作为效果保证。
 
-## 对话参考与测试
+## 快速安装与调用
 
-[查看19轮脱敏实测对话](examples/conversations/conversation-reference.md) · [复制多轮测试模板](examples/conversations/test-template.md) · [查看观察与已知问题](examples/conversations/observations.md)
-
-覆盖方向换新、恐怖转向、设定确认、角色重启、场景联动修改和母版收紧。保留真实失败与中断，不作为全部通过的测试报告；原图附件和私人路径未公开。
-
-## 安装
-
-需要 Git。以下以 Windows PowerShell 为例；自定义 CODEX_HOME 的用户将目录改为自己的 skills 目录。
+Windows PowerShell，需要已安装 Git；目标目录应不存在，自定义 CODEX_HOME 的用户需调整路径：
 
 ```powershell
 git clone https://github.com/William0702/character-awakening-template.git "$env:USERPROFILE\.codex\skills\character-awakening-template"
 ```
 
-如果目标目录已存在，请先自行备份并移走旧目录，勿强制覆盖。安装后在新聊天中使用：
+安装后在新聊天中附上角色图，输入：
 
 ```text
 使用 $character-awakening-template，这是我的初始角色，我没有具体方向。
 ```
 
-也可提供明确方向，直接进入详细设定。技能可自动匹配相关任务。
+已有想法时，把“没有具体方向”替换为自己的方向。未选中时可继续换新；详细设定经你确认后，才填写完整母版。技能不自动调用付费生成服务。
 
-## 获取更新
+更新已安装版本：
 
 ```powershell
 git -C "$env:USERPROFILE\.codex\skills\character-awakening-template" pull --ff-only
 ```
 
-main 是最新已发布内容。这是手动同步，不会在后台自动更新。使用快进拉取，不覆盖本地修改；遇到冲突先备份并处理差异，勿用强制重置。
-更新后建议在新聊天中使用，已经加载旧内容的聊天可能需要重新读取技能。
+这是手动同步；遇到本地修改或冲突时先处理差异。更多说明见[安装与使用指南](docs/installation.md)。
 
-查看本地版本及更新内容：
-```powershell
-Get-Content "$env:USERPROFILE\.codex\skills\character-awakening-template\VERSION"
-git -C "$env:USERPROFILE\.codex\skills\character-awakening-template" log -5 --oneline
-```
+## 文件分区
 
-## 使用固定版本
+| 分区 | 用途 | 谁需要看 |
+|---|---|---|
+| `docs/` | 安装、维护与目录导航 | 使用者、维护者 |
+| `examples/` | 视频封面、示例提示词与历史测试对话 | 看效果、做测试的人 |
+| `SKILL.md` + `references/` | 执行流程、确认关口、爆发机制与运镜要求 | Codex、修改规则的人 |
+| `assets/` | 原始母版与中括号替换模板 | Codex、修改母版的人 |
+| `agents/` | Codex 中的技能显示信息 | 维护者 |
 
-在技能目录中运行：
-```text
-git fetch --tags
-git switch --detach v1.2.0
-```
+## 使用边界
 
-恢复追踪最新：
-```text
-git switch main
-git pull --ff-only
-```
+提示词中的时长、120帧、360度等是创作要求，不保证模型准确执行。历史测试包含失败与修正，结构自检也不等于生成效果验证。
 
-## 维护与发布
-
-维护源是本仓库，不依赖独立视频项目。编辑 SKILL.md 或对应 references；不将具体角色生产状态写进通用规则。
-
-1. 修改内容，检查母版保留和工作流确认关口。
-2. 更新 VERSION 与 CHANGELOG.md。
-3. 执行技能结构校验（可用 Codex skill-creator 的 quick_validate.py），并人工审阅实际交付行为。
-4. 提交并推送 main，用户下次 pull 获取更新。
-5. 重要版本创建对应 Git 标签及 Release。
-
-```text
-git status --short
-git add <明确需要发布的文件>
-git commit -m "Describe the change"
-git push origin main
-git tag vX.Y.Z
-git push origin vX.Y.Z
-```
-
-版本策略：修复与说明用补丁号，兼容的功能增强用次版本，工作流或母版不兼容变化用主版本。不要将示例标签原样运行。
-
-## 目录
-
-- SKILL.md：技能入口。
-- assets/master-original.txt：原始母版。
-- assets/master-template.md：中括号替换模板。
-- references/workflow.md：两条完整制作路径。
-- references/setting-contract.md：详细觉醒设定。
-- references/impact-contract.md：爆发机制对照。
-- references/mechanism-camera-contract.md：六类机制及运镜前置设计。
-- agents/openai.yaml：显示信息。
-
-## 边界
-
-提示词时间是节奏预算，“120帧”“360度”等描述不保证模型执行。结构校验不等于生成效果验证。
-公开仓库包含技能文本、提示词及预览封面，Release另含用户授权的示例视频；使用者应自行确保输入素材和输出用途适当。当前未授予额外开源许可证，公开可访问不等于授予任意再分发或商业授权。
+当前未授予额外开源许可证；公开可访问不等于任意再分发或商业授权。
